@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Component Styles
+   ========================================================================== */
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 140px;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--bg-primary);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--accent-neon);
+    border: 2px solid var(--accent-neon);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-primary:hover {
+    box-shadow: var(--shadow-neon);
+}
+
+.btn-secondary:hover {
+    background: rgba(0, 255, 255, 0.1);
+}
+
+/* Section Layout */
+.section {
+    padding: var(--spacing-3xl) 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: var(--spacing-md);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.025em;
+}
+
+.section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Card Components */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+    transition: left 0.6s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-neon);
+    box-shadow: var(--shadow-neon);
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+/* Skill Progress Bars */
+.skill-progress {
+    width: 0 !important;
+    height: 100%;
+    background: var(--gradient-primary);
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 3px;
+}
+
+.skill-progress.animate {
+    width: var(--target-width) !important;
+}
+
+.skill-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.skill-level {
+    width: 100px;
+    height: 6px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Form Components */
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: var(--text-base);
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--accent-neon);
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Status Indicators */
+.status-indicator {
+    background: var(--bg-card);
+    border: 2px solid var(--accent-green);
+    border-radius: 24px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: var(--text-sm);
+    box-shadow: var(--shadow-medium);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    animation: dot-pulse 2s ease-in-out infinite;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-green);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 20px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Tech Stack Tags */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.tech-tag {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--accent-neon);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 20px;
+    font-size: var(--text-sm);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--accent-neon);
+    border-color: var(--accent-neon);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-neon);
+}
+
+/* Counter Animation */
+.counter {
+    font-weight: 700;
+    color: var(--accent-neon);
+}
+
+/* Parallax Background */
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        rgba(0, 255, 255, 0.03), 
+        transparent 40%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Scroll Progress */
+.scroll-progress {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--gradient-primary);
+    z-index: var(--z-scroll-progress);
+    transition: width 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
